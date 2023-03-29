@@ -17,10 +17,14 @@ def bruijn_graph(sequence: str, k: int) -> ig.Graph:
     for i in range(n):
         kmer = sequence[i:i+k]
         if len(kmer) != k:
-            continue 
+            continue
 
-        print(kmer)
+        if kmer in kmers.keys():
+            kmers[kmer] += 1
+        else:
+            kmers[kmer] = 1
 
+    print(kmers)
 
     return 1
 
@@ -28,7 +32,7 @@ seq = "ATGGAAGTCGCGGAATC"
 k = 3
 
 seq1 = "ATC"
-seq2 = "ATCGCC"
+seq2 = "ATCGCCATCCGCATCGCCGCC"
 seq3 = "ATCGCCTAA"
 
-bruijn_graph(seq2, k)
+bruijn_graph(seq, k)
