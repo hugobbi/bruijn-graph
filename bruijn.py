@@ -18,27 +18,19 @@ def bruijn_graph(sequence: str, k: int) -> ig.Graph:
 
     # Creates the graph using igraph
     vertices = list(vertices)
-    burjin_graph = ig.Graph(directed=True)
-    burjin_graph.add_vertices(vertices)
-    burjin_graph.add_edges(edges)
-    burjin_graph.vs['label'] = vertices
+    bruijn_graph = ig.Graph(directed=True)
+    bruijn_graph.add_vertices(vertices)
+    bruijn_graph.add_edges(edges)
+    bruijn_graph.vs['label'] = vertices
 
     # Plots and saves the graph
     visual_style = {}
-    #visual_style['bbox'] = (2000, 2000)
     visual_style['margin'] = 60
-    visual_style['layout'] = burjin_graph.layout('auto')
     visual_style['vertex_color'] = 'orange'
     visual_style['vertex_size'] = 30
-    visual_style['edge_curved'] = False
-    ig.plot(burjin_graph, target='burijn_graph.pdf', **visual_style)  
+    ig.plot(bruijn_graph, target='burijn_graph.pdf', **visual_style)  
 
-    print(burjin_graph.summary())
+    print(bruijn_graph)
+    print(bruijn_graph.summary())
 
-    return burjin_graph    
-
-seq  = 'ATGGAAGTCGCGGAATC'
-k = 3
-teste = 'AAGATTCTCTAAGA'
-
-bruijn_graph(seq, k)
+    return bruijn_graph
