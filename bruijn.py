@@ -1,5 +1,6 @@
 # Generates De Bruijn Graph from a string
-# Henrique Uhlmann Gobbi | hugobbi@inf.ufrgs.br
+# Henrique Uhlmann Gobbi - hugobbi@inf.ufrgs.br
+# Biologia Computacional - INF05018 - 2022/2
 # 29/03/2023
 
 import igraph as ig
@@ -28,9 +29,10 @@ def bruijn_graph(sequence: str, k: int) -> ig.Graph:
     visual_style['margin'] = 60
     visual_style['vertex_color'] = 'orange'
     visual_style['vertex_size'] = 30
-    ig.plot(bruijn_graph, target='burijn_graph.pdf', **visual_style)  
+    ig.plot(bruijn_graph, target='bruijn_graph.pdf', **visual_style)  
 
     print(bruijn_graph)
     print(bruijn_graph.summary())
 
     return bruijn_graph
+    
